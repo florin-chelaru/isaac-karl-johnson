@@ -25,12 +25,15 @@ export default function Seo() {
       <html lang={localeManager.locale.substring(0, 2)} />
       <meta charSet="utf-8" />
       <title>{componentStrings.title}</title>
-      <link rel="canonical" href={`https://twinfog-outsourcing.io/?hl=${localeManager.locale}`} />
+      <link
+        rel="canonical"
+        href={`https://florin-chelaru.github.io/isaac-karl-johnson/?hl=${localeManager.locale}`}
+      />
       <meta name="description" content={componentStrings.description} />
       <meta property="og:title" content={componentStrings.title} />
       <meta
         property="og:url"
-        content={`https://twinfog-outsourcing.io/?hl=${localeManager.locale}`}
+        content={`https://florin-chelaru.github.io/isaac-karl-johnson/?hl=${localeManager.locale}`}
       />
       <meta property="og:description" content={componentStrings.description} />
       <meta name="twitter:title" content={componentStrings.title} />

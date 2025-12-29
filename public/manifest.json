@@ -1,6 +1,6 @@
 {
-  "short_name": "TODO: Short name",
-  "name": "TODO: Long name",
+  "short_name": "Isaac Karl Johnson",
+  "name": "Isaac Johnson | Musicologist, Composer, Educator",
   "icons": [
     {
       "src": "favicon.ico",
@@ -8,9 +8,9 @@
       "type": "image/x-icon"
     },
     {
-      "src": "logo_balloon_marker-300.png",
+      "src": "logo_instrument.png",
       "type": "image/png",
-      "sizes": "300x300"
+      "sizes": "512x512"
     }
   ],
   "start_url": "/",

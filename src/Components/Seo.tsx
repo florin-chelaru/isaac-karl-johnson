@@ -9,8 +9,8 @@ interface SeoFields {
 }
 
 const EN_US: SeoFields = {
-  title: 'TODO',
-  description: 'TODO'
+  title: 'Isaac Johnson | Musicologist, Composer, Educator',
+  description: 'Isaac Johnson is an educator, organist, choral conductor, and composer, sharing music and scholarship across all ages and traditions.'
 }
 
 const SEO_TEXTS = new Map<SupportedLocale, LocalizedData>([[SupportedLocale.EN_US, EN_US]])

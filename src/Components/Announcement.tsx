@@ -1,0 +1,72 @@
+import React, { useContext, useMemo } from 'react'
+import { LocaleContext, LocaleHandler, LocalizedData } from '../store/LocaleProvider'
+import { SupportedLocale } from '../util/SupportedLocale'
+import { NavigateFunction, useNavigate } from 'react-router-dom'
+import { Alert, AlertTitle, Link } from '@mui/material'
+import { scrollToTop } from '../util/window'
+import Grid2 from '@mui/material/Unstable_Grid2'
+import {
+  AnnouncementContext,
+  AnnouncementHandler,
+  HIDE_ANNOUNCEMENT_COOKIE
+} from '../store/AnnouncementProvider'
+
+export const userHidAnnouncement: () => boolean = () => {
+  try {
+    return localStorage.getItem(HIDE_ANNOUNCEMENT_COOKIE) === 'true'
+  } catch (e) {
+    console.error(
+      `Could not load ${HIDE_ANNOUNCEMENT_COOKIE} preferences from localStorage. Details: ${
+        (e as Error).message
+      }`
+    )
+    return false
+  }
+}
+
+interface AnnouncementTexts extends LocalizedData {
+  alert?: (hide: () => void, navigate?: NavigateFunction) => React.ReactNode
+}
+
+const EN_US: AnnouncementTexts = {
+  alert: (hide: () => void, navigate?: NavigateFunction) => (
+    <Alert severity="info" sx={{ borderRadius: 0 }} onClose={hide}>
+      <AlertTitle>TODO: Add announcement here</AlertTitle>
+      <Link
+        color="inherit"
+        href=""
+        onClick={(e) => {
+          e.preventDefault()
+          navigate?.('/contact')
+          scrollToTop()
+        }}
+        rel="noreferrer"
+        target="_blank">
+        Click here
+      </Link>{' '}
+      to contact me and schedule a trial lesson.
+    </Alert>
+  )
+}
+
+const TEXTS = new Map<SupportedLocale, LocalizedData>([
+  [SupportedLocale.EN_US, EN_US]
+])
+
+export default function Announcement() {
+  const announcementManager = useContext<AnnouncementHandler>(AnnouncementContext)
+  const localeManager = useContext<LocaleHandler>(LocaleContext)
+
+  useMemo(() => localeManager.registerComponentStrings(Announcement.name, TEXTS), [])
+  const navigate = useNavigate()
+
+  const componentStrings = localeManager.componentStrings(Announcement.name) as AnnouncementTexts
+
+  return (
+    <Grid2 container>
+      {componentStrings.alert && (
+        <Grid2 xs={12}>{componentStrings.alert(() => announcementManager.hide(), navigate)}</Grid2>
+      )}
+    </Grid2>
+  )
+}

@@ -1,0 +1,2 @@
+# https://www.robotstxt.org/robotstxt.html
+Sitemap: https://twinfog-outsourcing.io/sitemap.txt

@@ -18,6 +18,7 @@ import Seo from './Components/Seo'
 import LocalizedCookieConsent from './Components/LocalizedCookieConsent'
 import { gaSendPageView } from './util/google-analytics'
 import AnnouncementProvider from './store/AnnouncementProvider'
+import { UserProvider } from './store/UserProvider'
 
 function App() {
   const navItems: NavItemInfo[] = [
@@ -54,22 +55,24 @@ function App() {
   return (
     <CustomThemeProvider>
       <LocaleProvider>
-        <AnnouncementProvider>
-          <Seo />
-          <LocalizedCookieConsent />
-          <DrawerAppBar navItems={navItems} />
-          <Grid2 container>
-            <Grid2 xs={12}>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/credits" element={<Credits />} />
-              </Routes>
+        <UserProvider>
+          <AnnouncementProvider>
+            <Seo />
+            <LocalizedCookieConsent />
+            <DrawerAppBar navItems={navItems} />
+            <Grid2 container>
+              <Grid2 xs={12}>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/credits" element={<Credits />} />
+                </Routes>
+              </Grid2>
             </Grid2>
-          </Grid2>
-          <ScrollTop />
-        </AnnouncementProvider>
+            <ScrollTop />
+          </AnnouncementProvider>
+        </UserProvider>
       </LocaleProvider>
     </CustomThemeProvider>
   )

@@ -49,9 +49,7 @@ const EN_US: AnnouncementTexts = {
   )
 }
 
-const TEXTS = new Map<SupportedLocale, LocalizedData>([
-  [SupportedLocale.EN_US, EN_US]
-])
+const TEXTS = new Map<SupportedLocale, LocalizedData>([[SupportedLocale.EN_US, EN_US]])
 
 export default function Announcement() {
   const announcementManager = useContext<AnnouncementHandler>(AnnouncementContext)

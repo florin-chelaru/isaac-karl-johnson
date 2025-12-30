@@ -1,5 +1,5 @@
 import React, { useContext, useMemo } from 'react'
-import { Helmet } from 'react-helmet'
+import { Helmet } from 'react-helmet-async'
 import { LocaleContext, LocaleHandler, LocalizedData } from '../store/LocaleProvider'
 import { SupportedLocale } from '../util/SupportedLocale'
 
@@ -10,7 +10,8 @@ interface SeoFields {
 
 const EN_US: SeoFields = {
   title: 'Isaac Johnson | Musicologist, Composer, Educator',
-  description: 'Isaac Johnson is an educator, organist, choral conductor, and composer, sharing music and scholarship across all ages and traditions.'
+  description:
+    'Isaac Johnson is an educator, organist, choral conductor, and composer, sharing music and scholarship across all ages and traditions.'
 }
 
 const SEO_TEXTS = new Map<SupportedLocale, LocalizedData>([[SupportedLocale.EN_US, EN_US]])

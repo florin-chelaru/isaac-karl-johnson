@@ -20,7 +20,7 @@ export default function Home({}: HomeProps) {
           <Grid2 xs={12}>
             <IntroCard />
           </Grid2>
-          {/* <Grid2
+          <Grid2
             xs={12}
             sx={{
               display: 'flex',
@@ -45,7 +45,7 @@ export default function Home({}: HomeProps) {
                 </IconButton>
               )}
             </Box>
-          </Grid2> */}
+          </Grid2>
         </Grid2>
       </Container>
     </>

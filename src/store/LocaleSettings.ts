@@ -21,5 +21,6 @@ export const EN_US: GlobalLocalizedData = {
   websiteTitle: 'Isaac Karl Johnson',
   news: 'Latest News',
   readMore: 'Read more',
-  signUp: 'Sign up'
+  signUp: 'Sign up',
+  youtubeChannel: 'Organ Performances'
 }

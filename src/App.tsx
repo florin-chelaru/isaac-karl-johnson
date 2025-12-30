@@ -19,6 +19,7 @@ import LocalizedCookieConsent from './Components/LocalizedCookieConsent'
 import { gaSendPageView } from './util/google-analytics'
 import AnnouncementProvider from './store/AnnouncementProvider'
 import { UserProvider } from './store/UserProvider'
+import SelectedVideoProvider from './store/SelectedVideoProvider'
 
 function App() {
   const navItems: NavItemInfo[] = [
@@ -56,22 +57,24 @@ function App() {
     <CustomThemeProvider>
       <LocaleProvider>
         <UserProvider>
-          <AnnouncementProvider>
-            <Seo />
-            <LocalizedCookieConsent />
-            <DrawerAppBar navItems={navItems} />
-            <Grid2 container>
-              <Grid2 xs={12}>
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/about" element={<About />} />
-                  <Route path="/contact" element={<Contact />} />
-                  <Route path="/credits" element={<Credits />} />
-                </Routes>
+          <SelectedVideoProvider>
+            <AnnouncementProvider>
+              <Seo />
+              <LocalizedCookieConsent />
+              <DrawerAppBar navItems={navItems} />
+              <Grid2 container>
+                <Grid2 xs={12}>
+                  <Routes>
+                    <Route path="/" element={<Home />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/contact" element={<Contact />} />
+                    <Route path="/credits" element={<Credits />} />
+                  </Routes>
+                </Grid2>
               </Grid2>
-            </Grid2>
-            <ScrollTop />
-          </AnnouncementProvider>
+              <ScrollTop />
+            </AnnouncementProvider>
+          </SelectedVideoProvider>
         </UserProvider>
       </LocaleProvider>
     </CustomThemeProvider>

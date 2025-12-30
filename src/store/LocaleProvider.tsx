@@ -23,6 +23,7 @@ export interface GlobalLocalizedData extends LocalizedData {
   readMore: string
   signUp: string
   websiteTitle: string
+  youtubeChannel: string
 }
 
 export interface LocaleHandler {
